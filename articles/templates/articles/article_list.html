@@ -1,0 +1,48 @@
+	{% extends "base_layout.html" %}
+	{% block title %}Article List{% endblock title %}
+	{% block content %}
+
+<main>
+	<h1 class="text-4xl my-5 text-violet-600 font-bold">Article List</h1>
+	<div class="articles">
+			<div class="h-60 w-60">
+				{% if user.is_authenticated %}
+				<li>
+					<form class="form" action="/accounts/logout/" method="post">
+						{% csrf_token %}
+						<button type="submit" class="bg-purple-700 rounded-1 w-20 h-7 text-white">Logout</button>
+					</form>
+				</li>
+				{% else %}
+				<div class="bg-purple-700 w-20 h-7 text-center rounded-1 pt-3">
+					<a class="text-white" href="{% url 'login' %}">Login</a>
+				</div>
+				{% endif %}
+			</div>
+		{% for element in articles %}
+		<div class="article__item h-15 w-100 my-8 flex items-center justify-between px-3 rounded-b-md shadow-lg rounded-sm shadow-purple-950">
+				<a href="{% url "article_detail" slug=element.slug %}" class="text-xl ml-5 text-fuchsia-600 font-medium">
+					{{element.snippet}}
+				</a>
+				<time datetime="" class="text-[14px] text-white mr-5">
+					{{element.date}}
+				</time>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</main>
+{% endblock content %}
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Article List</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static "/css/index.css" %}"></link>
+	{% comment %} <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+</body>
+</html> {% endcomment %}

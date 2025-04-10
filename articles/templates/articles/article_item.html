@@ -1,0 +1,11 @@
+{% extends "base_layout.html" %}
+{% block title %}{{article.title}}{% endblock title %}
+{% block content %}
+	<div class="article-detail">
+		<h1 class="mb-5 text-2xl font-bold text-white">{{article.title}}</h1>
+		<p class="w-110 text-xl font-mono text-white">{{article.body}}</p>
+		{% if article.thumbnail %}
+			<img src="{{article.thumbnail.url}}" alt="" class="image w-7/12 mt-10 rounded-2 mb-20"/>
+		{% endif %}
+	</div>
+{% endblock content %}

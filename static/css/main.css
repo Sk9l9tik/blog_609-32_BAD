@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+#id_username{
+    border: 3px;
+    border-color: brown;
+}
+
+.helptext{
+    color:chartreuse;
+}

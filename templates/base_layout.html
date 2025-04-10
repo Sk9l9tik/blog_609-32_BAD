@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Default title{% endblock title %}Default title</title>
+        {% comment %} <script src="https://unpkg.com/@tailwindcss/browser@4"></script> {% endcomment %}
+        <link rel="stylesheet" href="{% static '/css/index.css' %}"></link>
+    </head>
+    <body class="bg-zinc-950">
+        <div class="px-10 h-15 flex items-center bg-zinc-800">
+            <img src="{% static "/img/scbd.png" %}" class="w-8 h-8" />
+            <a href="{% url "home-page" %}" class="text-center h-fit text-xl font-medium mx-5 text-white">Main page</a>
+            <a href="/articles" class="text-center h-fit text-xl font-medium mx-5 text-white">Articles</a>
+            <a href="{% url "about" %}" class="text-center h-fit text-xl font-medium mx-5 text-white">About</a>
+            {% if user.is_authenticated == 0%}
+            <div class="bg-purple-700 w-20 h-7 text-center rounded-1 pb-3">
+                <a class="text-white" href="{% url 'signup' %}">Signup</a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="mx-10 mt-2 h-300 w-300">
+            {% block content %}{% endblock content %}
+        <div>
+    </body>
+</html> 
