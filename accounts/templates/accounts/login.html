@@ -1,11 +1,14 @@
 {% extends "base_layout.html" %}
 {% block content %}
-<div class="bg-white h-100 w-200">
-    <h1 class="text-4xl text-bold mt-1 my-1">Login</h1>
-    <form class="form ml-5 mt-5 " action="/accounts/login/" method="post">
+<div class="bg-gray-700 h-120 w-200 border-1 rounded-xl">
+    <h1 class="text-4xl text-bold mt-1 my-1 text-violet-600">Login</h1>
+    <form class="form ml-5 mt-5 " action="{% url 'accounts:login' %}" method="post">
         {%csrf_token%}
         {{form}}
-        <button type="submit" class="border-1 bg-gray-500 text-white w-22 h-8 rounded-sm">Login</button>
+        {% if request.GET.next %}
+            <input type='hidden' name="next" value="{{ request.GET.next }}" />
+        {% endif %}
+        <button type="submit" class="mt-5 border-1 bg-gray-500 text-white w-22 h-8 rounded-sm">Login</button>
     </form>
 </div>
 {% endblock content%}

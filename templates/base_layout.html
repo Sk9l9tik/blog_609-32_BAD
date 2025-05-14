@@ -6,6 +6,7 @@
         <title>{% block title %}Default title{% endblock title %}Default title</title>
         {% comment %} <script src="https://unpkg.com/@tailwindcss/browser@4"></script> {% endcomment %}
         <link rel="stylesheet" href="{% static '/css/index.css' %}"></link>
+        <link rel="stylesheet" href="{% static '/css/index2.css' %}"></link>
     </head>
     <body class="bg-zinc-950">
         <div class="px-10 h-15 flex items-center bg-zinc-800">
@@ -14,11 +15,31 @@
             <a href="/articles" class="text-center h-fit text-xl font-medium mx-5 text-white">Articles</a>
             <a href="{% url "about" %}" class="text-center h-fit text-xl font-medium mx-5 text-white">About</a>
             {% if user.is_authenticated == 0%}
+            <div class="flex justify-between w-60">
+
+                <div class="bg-purple-700 w-20 h-7 text-center rounded-1 pb-3">
+                    <form class="form" action="{% url 'accounts:login' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-purple-700 rounded-1 w-20 h-7 text-white">Login</button>
+                    </form>
+                </div>
+                <div class="bg-purple-700 w-20 h-7 text-center rounded-1 pb-3">
+                    <form class="form" action="{% url 'accounts:signup' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-purple-700 rounded-1 w-20 h-7 text-white">Signup</button>
+                    </form>
+                </div>
+            </div>
+            {% else %}
             <div class="bg-purple-700 w-20 h-7 text-center rounded-1 pb-3">
-                <a class="text-white" href="{% url 'signup' %}">Signup</a>
+                <form class="form" action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-purple-700 rounded-1 w-20 h-7 text-white">Logout</button>
+                </form>
             </div>
             {% endif %}
         </div>
+      
         <div class="mx-10 mt-2 h-300 w-300">
             {% block content %}{% endblock content %}
         <div>

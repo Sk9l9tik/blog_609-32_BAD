@@ -21,10 +21,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from mysite import views
+from articles import views as article_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage, name="home-page"),
+    path('', article_views.article_list, name="home-page"),
     path('about/', views.about, name="about"), 
     path('articles/', include('articles.urls')),
     path('accounts/', include('accounts.urls')),

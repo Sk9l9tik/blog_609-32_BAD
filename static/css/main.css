@@ -1,10 +1,33 @@
 @import "tailwindcss";
 
-#id_username{
-    border: 3px;
-    border-color: brown;
-}
 
-.helptext{
-    color:chartreuse;
-}
+#id_username {
+    border: 3px;
+    border-color: purple;
+  }
+  #id_password{
+    border: 3px;
+    border-color: purple;
+  }
+  .helptext {
+    color: blue;
+  }
+  
+  #id_title{
+    /* background-color: aquamarine; */
+    border-radius: 2px;
+    border: 2px;
+    border-color: blueviolet;
+  }
+
+  #id_body{
+    background-color: purple;
+  }
+
+  #id_password1{
+    background-color: purple;
+  }
+  
+  #id_password2{
+    background-color: purple;
+  }

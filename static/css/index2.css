@@ -1,0 +1,51 @@
+#id_username {
+    background-color: white;
+  }
+
+  #id_username{
+    background-color: white;
+  }
+  #id_password{
+    border: 3px;
+    border-color: white;
+  }
+  .helptext {
+    color: rgb(255, 91, 91);
+  }
+  
+  #id_body{
+    background-color: white;
+    margin-left: 50px;
+  }
+
+  #id_password1{
+    background-color: white;
+  }
+  
+  #id_password2{
+    background-color: white;
+    border: 5px;
+  }
+
+  .errorlist{
+    color:rgb(255, 91, 91);
+  }
+
+  label{
+    color: white;
+  }
+
+  #id_title{
+    background-color: white;
+    margin-bottom: 20px;
+    width: 320px;
+    margin-left: 54px;
+  }
+
+  #id_thumbnail{
+    background-color: white;
+    margin-top: 20px;
+    width: 280px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
