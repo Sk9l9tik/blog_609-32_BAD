@@ -26,7 +26,7 @@
 			</div> {% endcomment %}
 
 		{% for element in articles %}
-		<div class="article__item h-15 w-100 my-8 flex items-center justify-between px-3 rounded-b-md shadow-lg rounded-sm shadow-purple-950">
+		<div class="article__item h-15 max-lg:w-full w-100 my-8 flex items-center justify-between px-3 rounded-b-md shadow-lg rounded-sm shadow-purple-950">
 				<a href="{% url "articles:article_detail" slug=element.slug %}" class="text-xl ml-5 text-fuchsia-600 font-medium">
 					{{element.snippet}}
 				</a>

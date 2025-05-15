@@ -1,0 +1,12 @@
+{% extends "base_layout.html" %}
+{% load static %}
+{% block title %} Create or update Article {% endblock title %}
+{% block content %}
+<h1 class="text-4xl text-bold mt-1 my-1 text-violet-600 mb-5">Create or update article</h1>
+
+<form class="form bg-gray-700 h-120 w-200 border-1 rounded-xl" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="border-1 bg-gray-500 text-white w-22 h-40 rounded-sm">Save</button>
+</form>
+{% endblock content%}
